@@ -1,0 +1,16 @@
+import random
+
+bet = input("Pick your bet. Heads or Tails?\n").lower()
+head_or_tail = random.randint(0, 1)
+
+if head_or_tail == 0:
+    head_or_tail = "heads"
+else:
+    head_or_tail = "tails"
+
+print(f"Computer choose {head_or_tail}")
+
+if bet == head_or_tail:
+    print("You win!")
+else:
+    print("You lose.")
