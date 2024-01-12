@@ -1,0 +1,62 @@
+#Version 1
+
+line1 = ["🪨", "🪨", "🪨"]
+line2 = ["🪨", "🪨", "🪨"]
+line3 = ["🪨", "🪨", "🪨"]
+map = [line1, line2, line3]
+print("Hiding your treasure! X marks the spot.")
+
+position = input()
+letter = position[0].lower()
+abc = ["a", "b", "c"]
+letter_index = abc.index(letter)
+number_index = int(position[1]) - 1
+
+map[number_index][letter_index] = "💰"
+
+print(f"{line1}\n{line2}\n{line3}")
+
+#Version 2
+row = int(input("Pick a number from 1-26. "))
+col = int(input("Pick a number from 1-26. "))
+if row <= 26 or col <= 26:
+    map = [["🪨" for x in range(row)] for y in range(col)]
+    position = input()
+
+    alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
+            "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+    letter = position[0].lower()
+    letter_index = alphabet.index(letter)
+    number_index = int(position[1]) - 1
+
+    map[number_index][letter_index] = "💰"
+
+    for z in map:
+        print(z)
+else:
+    print("Number is beyond the limit.")
+
+
+#Version 3
+import random
+
+print('''                                                                                                                                                                                                                       
+  ._________.    
+ 1|🪨 🪨 🪨 🪨 🪨|
+ 2|🪨 🪨 🪨 🪨 🪨|
+ 3|🪨 🪨 🪨 🪨 🪨|
+ 4|🪨 🪨 🪨 🪨 🪨|
+ 5|🪨 🪨 🪨 🪨 🪨|
+   A B C D E 
+''')
+
+player_choice = input("Guess your bet. ")
+computer_letter_choice = random.randint(0, 4)
+computer_number_choice = random.randint(1, 5)
+abcde = ["A", "B", "C", "D", "E"]
+computer_choice = abcde[computer_letter_choice] + str(computer_number_choice)
+print(f"The computer hides the treasure in {computer_choice}.")
+if player_choice == computer_choice:
+    print("You Win!")
+else:
+    print("Game Over.")
