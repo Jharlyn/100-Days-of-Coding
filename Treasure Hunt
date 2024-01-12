@@ -1,0 +1,34 @@
+import random
+
+print(''' 
+
+█░█░█ █▀▀ █░░ █▀▀ █▀█ █▀▄▀█ █▀▀   ▀█▀ █▀█   ▀█▀ █▀█ █▀▀ ▄▀█ █▀ █░█ █▀█ █▀▀  █░█ █░█ █▄░█ ▀█▀
+▀▄▀▄▀ ██▄ █▄▄ █▄▄ █▄█ █░▀░█ ██▄   ░█░ █▄█   ░█░ █▀▄ ██▄ █▀█ ▄█ █▄█ █▀▄ ██▄  █▀█ █▄█ █░▀█ ░█░  
+
+''')    
+
+print('''
+The pirates have hidden the treasure beneath these rocks. Will you succeed in finding it?
+''')
+
+print('''
+  ._________.    
+ 1|🪨 🪨 🪨 🪨 🪨|
+ 2|🪨 🪨 🪨 🪨 🪨|
+ 3|🪨 🪨 🪨 🪨 🪨|
+ 4|🪨 🪨 🪨 🪨 🪨|
+ 5|🪨 🪨 🪨 🪨 🪨|
+   A B C D E 
+''')
+
+player_choice = input("Choose a number to guess where the treasure is. (e.g. A1) ")
+computer_letter_choice = random.randint(1, 4)
+computer_number_choice = random.randint(1, 5)
+abcde = ["A", "B", "C", "D", "E"]
+computer_choice = abcde[computer_letter_choice] + str(computer_number_choice)
+print(f"The pirates have hidden the treasure in {computer_choice}.")
+
+if player_choice == computer_choice:
+    print("You Win!")
+else:
+    print("Game Over.")
