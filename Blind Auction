@@ -1,0 +1,39 @@
+import os
+
+logo = '''
+                         ___________
+                         \         /
+                          )_______(
+                          |"""""""|_.-._,.---------.,_.-._
+                          |       | | |               | | ''-.
+                          |       |_| |_             _| |_..-'
+                          |_______| '-' `'---------'` '-'
+                          )"""""""(
+                         /_________\\
+                       .-------------.
+                      /_______________\\
+'''
+print(logo)
+
+bidders = {}
+is_continue = True
+
+while is_continue:
+    name = input("What is your name?\n")
+    bid_price = int(input("What's your bid?\n"))
+    bidders[name] = bid_price
+    other_bidders = input("Are there any other bidders? Type 'yes' or 'no'.\n").lower()
+    if other_bidders == 'no':
+        is_continue = False
+        os.system('cls' if os.name == 'nt' else 'clear')
+    else:
+        os.system('cls' if os.name == 'nt' else 'clear')
+
+highest_bid = 0
+highest_bidder = ""
+for bidder, bid_amount in bidders.items():
+    if bid_amount > highest_bid:
+        highest_bid = bid_amount
+        highest_bidder = bidder
+
+print(f"The winner is {highest_bidder} with a bid of ${highest_bid}.")
